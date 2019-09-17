@@ -5,6 +5,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+@import AVKit;
 
 @implementation RNAirplayManager
 
@@ -14,10 +15,10 @@ RCT_EXPORT_MODULE();
 
 - (UIView *)view {
 
-    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-    volumeView.showsVolumeSlider = false;
-
-    return volumeView;
+    AVRoutePickerView *pickerView = [[AVRoutePickerView alloc] init];
+    pickerView.tintColor = UIColor.blackColor;
+    
+    return pickerView;
 
 }
 @end
