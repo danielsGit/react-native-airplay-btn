@@ -14,10 +14,17 @@ RCT_EXPORT_MODULE();
 @synthesize bridge = _bridge;
 
 - (UIView *)view {
-
+    NSMutableDictionary *nowPlayingInfo = [[NSMutableDictionary alloc] initWithCapacity:2];
+    [nowPlayingInfo setValue:@"Coco & Colt" forKey:MPMediaItemPropertyTitle];
+    UIImage *artworkImage = [UIImage imageNamed:@"artwork"];
+    MPMediaItemArtwork *itemArtwork = [[MPMediaItemArtwork alloc] initWithBoundsSize:artworkImage.size requestHandler:^UIImage * _Nonnull(CGSize size) {
+        return artworkImage;
+    }];
+    [nowPlayingInfo setValue:itemArtwork forKey:MPMediaItemPropertyArtist];
+    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = nowPlayingInfo;
     AVRoutePickerView *pickerView = [[AVRoutePickerView alloc] init];
     pickerView.tintColor = UIColor.blackColor;
-    
+
     return pickerView;
 
 }
