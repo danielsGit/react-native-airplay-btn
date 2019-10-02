@@ -24,6 +24,7 @@ RCT_EXPORT_MODULE();
     [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = nowPlayingInfo;
     AVRoutePickerView *pickerView = [[AVRoutePickerView alloc] init];
     pickerView.tintColor = UIColor.blackColor;
+    pickerView.activeTintColor = UIColor.blackColor;
 
     return pickerView;
 
